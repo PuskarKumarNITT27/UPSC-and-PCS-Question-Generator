@@ -18,7 +18,7 @@ class QuizManager:
         self.user_answers = []
         self.results = []
     
-    def generate_questions(self,topic: str, question_type: str,difficulty:str, num_question:int) -> bool:
+    def generate_questions(self,topic: str, question_type: str,difficulty:str, num_questions:int) -> bool:
         self.reset()
         
         if not topic.strip():
@@ -26,12 +26,12 @@ class QuizManager:
         
         generator = QuestionGenerator()
         
-        for i in range(num_question):
+        for i in range(num_questions):
             if question_type == "Multiple Choice":
                 q = generator.generate_mcq(topic=topic,difficulty=difficulty.lower())
-                self.question.append({
+                self.questions.append({
                     'type':'MCQ',
-                    'questions':q.questions,
+                    'question':q.question,
                     'options':q.options,
                     'correct_answer':q.correct_answer
                 })
@@ -39,7 +39,7 @@ class QuizManager:
                 q= generator.generate_fill_blank(topic=topic,difficulty=difficulty.lower())
                 self.questions.append({
                     'type':'Fill in the Blanks',
-                    'questions':q.questions,
+                    'question':q.question,
                     'correct_answer':q.answer,
                     'options':[]
                 })
