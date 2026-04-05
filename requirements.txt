@@ -1,6 +1,7 @@
 langchain
 langchain_community
-langchain_huggingface
+langchain_google_genai
 python-dotenv
 pydantic
 streamlit
+pandas

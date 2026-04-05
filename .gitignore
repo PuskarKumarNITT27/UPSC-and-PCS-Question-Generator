@@ -1,1 +1,7 @@
 virtEnv/
+__pycache__/
+*.pyc
+.env
+results/
+*.csv
+.DS_Store
